@@ -1,9 +1,11 @@
 # importing Flask and other modules 
 from flask import Flask, request, render_template, jsonify 
 from flask_cors import CORS
+from flask_ngrok import run_with_ngrok
 
 # Flask constructor 
-app = Flask(__name__)    
+app = Flask(__name__)  
+run_with_ngrok(app)  
 cors = CORS(app, allow_headers='*')
 # A decorator used to tell the application 
 # which URL is associated function 
@@ -44,5 +46,5 @@ def user():
 
 
 
-if __name__=='__main__': 
-   app.run(port = 8000, debug=True) 
+# if __name__=='__main__': 
+app.run() 
